@@ -1,0 +1,44 @@
+POST http://localhost:8080/users/signup HTTP/1.1
+Content-type: application/json
+
+{
+    "name":"Devendra",
+    "username":"devendrab",
+    "email":"devendra.official@gmail.com",
+    "password":"password",
+    "profile_url":"https://github.com/devendrab-official/profile"
+}
+
+###
+POST http://localhost:8080/users/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "email":"devendra.official@gmail.com",
+    "password":"password"
+}
+
+###
+POST http://localhost:8080/blog/upload HTTP/1.1
+Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjb21wYW55IjoidXNlcl9hdXRoZW50aWNhdGlvbiIsInN1YiI6ImI3MTIxZDRjLWZkMzMtNGIxOS04NGEzLWYyNGQ5YWMxNGIxYiIsImV4cCI6MTc0NDM5MDc0OX0.Kc-HRIJ_yewqZscau4AMg_17HOVZaGVTRVTfYXR-LsE
+Content-Type: multipart/form-data; boundary=MyBoundary
+
+--MyBoundary
+Content-Disposition: form-data; name="file"; filename="hello.png"
+
+< /home/devendra/Pictures/Screenshots/hello.png
+
+--MyBoundary
+Content-Disposition: form-data; name="blog"
+Content-Type: application/json
+
+{
+  "title": "My Blog",
+  "content": "This is a blog post."
+}
+
+--MyBoundary--
+
+###
+GET http://localhost:8080/blog/get-blogs HTTP/1.1
+Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjb21wYW55IjoidXNlcl9hdXRoZW50aWNhdGlvbiIsInN1YiI6ImI3MTIxZDRjLWZkMzMtNGIxOS04NGEzLWYyNGQ5YWMxNGIxYiIsImV4cCI6MTc0NDM5MDc0OX0.Kc-HRIJ_yewqZscau4AMg_17HOVZaGVTRVTfYXR-LsE
